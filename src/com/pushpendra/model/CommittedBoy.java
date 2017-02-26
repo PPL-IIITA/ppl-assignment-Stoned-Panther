@@ -17,6 +17,18 @@ public class CommittedBoy {
     public CommittedGirl girlfriend;
     Random r = new Random();
 
+    /**
+     *
+     * @param status
+     * @param type
+     * @param name
+     * @param attractivness
+     * @param intelligence
+     * @param budget
+     * @param min_attr_req
+     * @param happiness
+     * @param girlfriend
+     */
     public CommittedBoy(String status, String type, String name, double attractivness, double intelligence, double budget, double min_attr_req, double happiness, CommittedGirl girlfriend) {
         this.status = status;
         this.type = type;
@@ -29,14 +41,22 @@ public class CommittedBoy {
         this.girlfriend = girlfriend;
     }
 
+    /**
+     *
+     * @param girl
+     * @param gift
+     */
     public void countHappiness(CommittedGirl girl, Gift gift) {
-        if (type == "miser") {
-            happiness = happiness + budget - gift.price;
+        if (type.equals("miser")) {
+            budget = budget-gift.price;
+            happiness = budget;
         }
-        if (type == "generous") {
+        if (type.equals("generous")) {
+            budget = budget-gift.price;
             happiness = happiness + girl.happiness;
         }
-        if (type == "geeks") {
+        if (type.equals("geeks")) {
+            budget = budget-gift.price;
             happiness = happiness + girl.intelligence;
         }
     }

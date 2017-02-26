@@ -8,7 +8,7 @@ import java.util.Random;
 public class CommittedGirl {
     //attributes of girl;
     public String status;
-    String type;
+    public String type;
     public String name;
     public Double attractivness;
     public Double intelligence;
@@ -18,6 +18,17 @@ public class CommittedGirl {
 
     Random r = new Random();
 
+    /**
+     *
+     * @param status
+     * @param type
+     * @param name
+     * @param attractivness
+     * @param intelligence
+     * @param maintenanceCost
+     * @param boyfriend
+     * @param happiness
+     */
     public CommittedGirl(String status, String type, String name, Double attractivness, Double intelligence, Double maintenanceCost, CommittedBoy boyfriend, Double happiness) {
         this.status = status;
         this.type = type;
@@ -29,19 +40,27 @@ public class CommittedGirl {
         this.happiness = happiness * r.nextDouble();
     }
 
+    /**
+     *
+     * @param gift
+     */
     public void countHappiness(Gift gift) {
-        if (type == "choosy") {
-            if (gift.type == "Essential" || gift.type == "Utility") {
+        if (type.equals("choosy")) {
+            if (gift.type.equals("Essential") || gift.type.equals("Utility")) {
+                maintenanceCost  = maintenanceCost-gift.price;
                 happiness = happiness + Math.log(gift.price);
             }
-            if (gift.type == "Luxury") {
+            if (gift.type.equals("Luxury")) {
+                maintenanceCost  = maintenanceCost-gift.price;
                 happiness = happiness + Math.log(2 * (gift.price));
             }
         }
-        if (type == "normal") {
+        if (type.equals("normal")) {
+            maintenanceCost  = maintenanceCost-gift.price;
             happiness = happiness + gift.price + gift.value;
         }
-        if (type == "desperate") {
+        if (type.equals("desperate")) {
+            maintenanceCost  = maintenanceCost-gift.price;
             happiness = happiness + Math.exp(gift.price);
         }
 

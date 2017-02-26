@@ -17,7 +17,10 @@ public class Util {
     private static final String comma = ",";
     private static final String newLine = "\n";
 
-
+    /**
+     *
+     * @param t
+     */
     public void generateGifts(int t) {
         //  final String header = "type,name,price,value,rating/utilityclass,difficulty/utilityvalue";
         String[] type;

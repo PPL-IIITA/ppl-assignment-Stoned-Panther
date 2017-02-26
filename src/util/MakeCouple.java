@@ -20,6 +20,11 @@ public class MakeCouple {
     String csvSplit = ",";
     BufferedReader buff = null;
 
+    /**
+     *
+     * @param b
+     * @param g
+     */
     public void makecouple1(CommittedBoy b[], CommittedGirl g[]) {
         try {
             buff = new BufferedReader(new FileReader(csvFile));
@@ -76,6 +81,10 @@ public class MakeCouple {
         }
     }
 
+    /**
+     *
+     * @param gi
+     */
     public void getgifts(Gift gi[]){
         String csvFile1 = "csvFiles/GIFTS.csv";
         String line1 = "";

@@ -4,17 +4,28 @@ package com.pushpendra.model;
  * Created by panther on 26/2/17.
  */
 public class Couple {
-    public CommittedBoy boy;
+    public CommittedGirl girl;
     public double happiness,compatibility;
 
-    public Couple(CommittedBoy boy) {
-        this.boy = boy;
+    /**
+     *
+     * @param girl
+     */
+    public Couple(CommittedGirl girl) {
+        this.girl = girl;
     }
 
+    /**
+     *
+     */
     public void countHappiness(){
-        happiness = boy.happiness+boy.girlfriend.happiness;
+        happiness = girl.happiness+girl.boyfriend.happiness;
     }
+
+    /**
+     *
+     */
     public void countCompability(){
-        compatibility = Math.abs(boy.budget-boy.girlfriend.maintenanceCost) + Math.abs(boy.attractivness-boy.girlfriend.attractivness)+Math.abs(boy.intelligence-boy.girlfriend.attractivness);
+        compatibility = Math.abs(girl.boyfriend.budget-girl.maintenanceCost) + Math.abs(girl.boyfriend.attractivness-girl.attractivness)+Math.abs(girl.boyfriend.intelligence-girl.attractivness);
     }
 }
