@@ -14,10 +14,10 @@ public class CommittedBoy {
     public double budget;
     public double min_attr_req;
     double happiness = 0.00;
-    public String girlfriend;
+    public CommittedGirl girlfriend;
     Random r = new Random();
 
-    public CommittedBoy(String status, String type, String name, double attractivness, double intelligence, double budget, double min_attr_req, double happiness, String girlfriend) {
+    public CommittedBoy(String status, String type, String name, double attractivness, double intelligence, double budget, double min_attr_req, double happiness, CommittedGirl girlfriend) {
         this.status = status;
         this.type = type;
         this.name = name;
@@ -29,7 +29,7 @@ public class CommittedBoy {
         this.girlfriend = girlfriend;
     }
 
-    void countHappiness(CommittedGirl girl, Gift gift) {
+    public void countHappiness(CommittedGirl girl, Gift gift) {
         if (type == "miser") {
             happiness = happiness + budget - gift.price;
         }

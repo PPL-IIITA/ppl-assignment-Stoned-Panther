@@ -13,12 +13,12 @@ public class CommittedGirl {
     public Double attractivness;
     public Double intelligence;
     public Double maintenanceCost;
-    public String boyfriend;
+    public CommittedBoy boyfriend;
     public Double happiness;
 
     Random r = new Random();
 
-    public CommittedGirl(String status, String type, String name, Double attractivness, Double intelligence, Double maintenanceCost, String boyfriend, Double happiness) {
+    public CommittedGirl(String status, String type, String name, Double attractivness, Double intelligence, Double maintenanceCost, CommittedBoy boyfriend, Double happiness) {
         this.status = status;
         this.type = type;
         this.name = name;
@@ -29,12 +29,12 @@ public class CommittedGirl {
         this.happiness = happiness * r.nextDouble();
     }
 
-    void countHappiness(Gift gift) {
+    public void countHappiness(Gift gift) {
         if (type == "choosy") {
-            if (gift.type == 'E' || gift.type == 'U') {
+            if (gift.type == "Essential" || gift.type == "Utility") {
                 happiness = happiness + Math.log(gift.price);
             }
-            if (gift.type == 'L') {
+            if (gift.type == "Luxury") {
                 happiness = happiness + Math.log(2 * (gift.price));
             }
         }

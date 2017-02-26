@@ -2,6 +2,8 @@ package com.pushpendra;
 
 import com.pushpendra.model.CommittedBoy;
 import com.pushpendra.model.CommittedGirl;
+import com.pushpendra.model.Couple;
+import util.Givegifts;
 import util.MakeCouple;
 import util.Util;
 
@@ -18,9 +20,11 @@ public class Main {
 
         for (int k = 0; k < 50; k++) {
             if (g[k].status.equals("Committed")) {
-                System.out.println(g[k].name + " is committed with " + g[k].boyfriend + " " + b[k].status);
+                System.out.println(g[k].name + " is committed with " + g[k].boyfriend.name + " " + g[k].boyfriend.status);
             }
         }
+
+
 
     }
 }
