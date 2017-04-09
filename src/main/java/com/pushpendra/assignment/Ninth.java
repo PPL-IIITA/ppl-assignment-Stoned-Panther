@@ -9,7 +9,7 @@ import java.util.Scanner;
  */
 public class Ninth {
     public static void main(String[] args) {
-        System.out.println("enter value of k");
+        System.out.println("enter value of k < 20");
         Scanner s = new Scanner(System.in);
         int k = s.nextInt();
         NinthStructure i = new NinthStructure();

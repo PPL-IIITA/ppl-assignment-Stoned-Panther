@@ -16,11 +16,69 @@ jar {
 }
 
 task jarThird(type: Jar) {
-    baseName = 'third'
-    manifest.attributes("Main-Class":"com.pushpendra.assignment.Third")
+    baseName = 'Third'
+    manifest.attributes('Main-Class':'com.pushpendra.assignment.Third')
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
 }
 
-assemble.dependsOn(jarThird)
+task jarFourth(type: Jar) {
+    baseName = 'Fourth'
+    manifest.attributes('Main-Class':'com.pushpendra.assignment.Fourth')
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+task jarFifth(type: Jar) {
+    baseName = 'Fifth'
+    manifest.attributes('Main-Class':'com.pushpendra.assignment.Fifth')
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+task jarSixth(type: Jar) {
+    baseName = 'Sixth'
+    manifest.attributes('Main-Class':'com.pushpendra.assignment.Sixth')
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+task jarSeventh(type: Jar) {
+    baseName = 'Seventh'
+    manifest.attributes('Main-Class':'com.pushpendra.assignment.Seventh')
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+task jarEighth(type: Jar) {
+    baseName = 'Eighth'
+    manifest.attributes('Main-Class':'com.pushpendra.assignment.Eighth')
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+task jarNinth(type: Jar) {
+    baseName = 'Ninth'
+    manifest.attributes('Main-Class':'com.pushpendra.assignment.Ninth')
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+task jarTenth(type: Jar) {
+    baseName = 'Tenth'
+    manifest.attributes('Main-Class':'com.pushpendra.assignment.Tenth')
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+jar.dependsOn(jarThird)
+jar.dependsOn(jarFourth)
+jar.dependsOn(jarFifth)
+jar.dependsOn(jarSixth)
+jar.dependsOn(jarSeventh)
+jar.dependsOn(jarEighth)
+jar.dependsOn(jarNinth)
+jar.dependsOn(jarTenth)
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'

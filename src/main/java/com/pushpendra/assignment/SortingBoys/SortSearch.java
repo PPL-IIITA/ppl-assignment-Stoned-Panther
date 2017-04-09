@@ -17,8 +17,12 @@ public class SortSearch {
         int i,j;
         for(i = 0; i < n; i++){
             for(j = 0; j < 500; j++){
-                if(boys[i].equals(b[j].name))
-                    girls[i] = b[j].girlfriend.name;
+                if(boys[i].equals(b[j].name)) {
+                    if (b[j].girlfriend != null) {
+                        girls[i] = b[j].girlfriend.name;
+                    }
+                    break;
+                }
             }
         }
     }

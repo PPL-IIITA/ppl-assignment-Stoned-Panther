@@ -41,7 +41,7 @@ public class Third {
                     c[j+1] = n;
                 }
             }
-            System.out.println(c[cn-1-i].girl.name + " " + c[cn-1-i].girl.boyfriend.name + " " + c[cn-1-i].happiness);
+            System.out.println(c[cn-1-i].girl.name + " " + c[cn-1-i].girl.boyfriend.name);
         }
         System.out.println(k +" Most Compatible couple");
         for(i = 0; i < k; i++){
@@ -52,7 +52,7 @@ public class Third {
                     c[j+1] = n;
                 }
             }
-            System.out.println(c[cn-1-i].girl.name + " " + c[cn-1-i].girl.boyfriend.name + " " + c[cn-1-i].compatibility);
+            System.out.println(c[cn-1-i].girl.name + " " + c[cn-1-i].girl.boyfriend.name);
         }
     }
 }

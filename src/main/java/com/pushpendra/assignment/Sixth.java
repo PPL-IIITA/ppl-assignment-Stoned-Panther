@@ -14,7 +14,7 @@ public class Sixth {
 
     public static void main(String[] args) {
         int i,j,t;
-        System.out.println("enter value of t");
+        System.out.println("enter value of t < 20");
         Scanner sc = new Scanner(System.in);
         t = sc.nextInt();
         int cn=0;

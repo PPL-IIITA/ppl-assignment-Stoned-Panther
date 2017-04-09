@@ -43,8 +43,10 @@ public class BinarySearch extends SortSearch {
         if(low>high)
             return;
         int mid = low + ((high-low)/2);
-        if(bo[mid].name.equals(b1[k]))
-            g1[k] = bo[mid].girlfriend.name;
+        if(bo[mid].name.equals(b1[k])) {
+            if(bo[mid].girlfriend!=null)
+                g1[k] = bo[mid].girlfriend.name;
+        }
         else if(bo[mid].name.compareTo(b1[k])<0){
             search(bo,mid+1,high,b1,g1,k);
         }

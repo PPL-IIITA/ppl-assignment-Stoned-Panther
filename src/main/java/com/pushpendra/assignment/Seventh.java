@@ -19,7 +19,7 @@ import java.util.Scanner;
 public class Seventh {
     public static void main(String[] args) {
         int cn=0;
-        System.out.println("enter no. of boys in list");
+        System.out.println("enter no. of boys in list < 20");
         Scanner sc = new Scanner(System.in);
         int k = sc.nextInt();
         Couple[] c = new Couple[200];
@@ -30,7 +30,7 @@ public class Seventh {
         cn = mii.makecouple1(c,b,g);
         String[] boys = new String[k];
         String[] girls = new String[k];
-        GetBoysList gi = new GetBoysList(boys,k);
+        GetBoysList gi = new GetBoysList(boys,b,k);
         int i;
         for(i = 0; i < k; i++)
             System.out.println(boys[i]);
@@ -61,6 +61,10 @@ public class Seventh {
                 break;
         }
         for(i = 0; i < k; i++)
-            System.out.println(boys[i] + "'s girlfriend is " + girls[i]);
+            if(girls[i] == null) {
+                System.out.println(boys[i] + " has no girlfriend");
+            }
+            else
+                System.out.println(boys[i] + "'s girlfriend is " + girls[i]);
     }
 }

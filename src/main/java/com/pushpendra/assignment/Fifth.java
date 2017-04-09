@@ -16,7 +16,7 @@ public class Fifth {
         System.out.println("enter the choice\n1.ALgo1\n2.Algo2");
         Scanner s = new Scanner(System.in);
         int ch = s.nextInt();
-        System.out.println("enter value of k");
+        System.out.println("enter value of k < 20");
         int k = s.nextInt();
         Couple[] c = new Couple[200];
         CommittedGirl[] g = new CommittedGirl[200];
@@ -58,7 +58,7 @@ public class Fifth {
                     c[j + 1] = n;
                 }
             }
-            System.out.println(c[cn - 1 - i].girl.name + " " + c[cn - 1 - i].girl.boyfriend.name + " " + c[cn - 1 - i].happiness);
+            System.out.println(c[cn - 1 - i].girl.name + " " + c[cn - 1 - i].girl.boyfriend.name);
         }
     }
 }

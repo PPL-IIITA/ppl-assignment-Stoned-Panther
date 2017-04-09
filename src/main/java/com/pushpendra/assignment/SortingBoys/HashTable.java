@@ -27,7 +27,9 @@ public class HashTable extends SortSearch {
             while (hashTable[p].name.equals(boys[i])==false){
                 p = (p+1)%500;
             }
-            girls[i] = hashTable[p].girlfriend.name;
+            if(hashTable[p].girlfriend!=null) {
+                girls[i] = hashTable[p].girlfriend.name;
+            }
         }
     }
 

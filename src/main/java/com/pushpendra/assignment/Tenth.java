@@ -9,7 +9,7 @@ import java.util.Scanner;
  */
 public class Tenth {
     public static void main(String[] args) {
-        System.out.println("enter value of n");
+        System.out.println("enter value of n < 20");
         Scanner s = new Scanner(System.in);
         int k = s.nextInt();
         tenthStructure i = new tenthStructure();
