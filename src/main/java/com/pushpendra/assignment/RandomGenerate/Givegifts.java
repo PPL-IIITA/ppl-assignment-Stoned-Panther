@@ -3,6 +3,7 @@ package com.pushpendra.assignment.RandomGenerate;
 import com.pushpendra.assignment.Girl.CommittedGirl;
 import com.pushpendra.assignment.Boy.CommittedBoys;
 import com.pushpendra.assignment.Gifts.Gift;
+import com.pushpendra.assignment.exceptions.NoMoreGiftsAvailable;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -20,7 +21,7 @@ public class Givegifts {
      * @param s
      */
     public void givegifts(CommittedBoys b[],CommittedGirl g[],Gift gi[],int s) {
-        int k;
+        int k,os=0;
         for(k = 0; k < 200; k++){
             if(g[k].boyfriend!=null){
                 int r=0;
@@ -79,16 +80,22 @@ public class Givegifts {
                         r++;
                     }
                 }
+                if(r==s-1){
+                    try{
+                        throw new NoMoreGiftsAvailable();
+                    } catch (NoMoreGiftsAvailable noMoreGiftsAvailable) {
+                        os++;
+                        noMoreGiftsAvailable.printStackTrace();
+                    }
+                }
                 //System.out.println(p + " " + v  + " " + t);
                 g[k].countHappiness(p,v,t);
                // System.out.println(g[k].type + " " + g[k].happiness);
                 g[k].boyfriend.countHappiness(l,g[k]);
                 //System.out.println(g[k].boyfriend.happiness);
             }
-
         }
-
-
+        System.out.println("NoMoreGiftsAvailable Exception was catched " + os + " times\n");
     }
 }
 

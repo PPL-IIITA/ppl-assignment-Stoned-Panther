@@ -3,6 +3,7 @@ package com.pushpendra.assignment.RandomGenerate;
 import com.pushpendra.assignment.Boy.CommittedBoys;
 import com.pushpendra.assignment.Gifts.Gift;
 import com.pushpendra.assignment.Girl.CommittedGirl;
+import com.pushpendra.assignment.exceptions.NoBoyFound;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -23,7 +24,7 @@ public class DoBreakUp {
      * @return
      */
     public int BreakUp(Couple c[], CommittedBoys[] b, CommittedGirl[] g, Gift[] gi,int cn,int t){
-        int i,j;
+        int i,j,p1=0;
         for(i = 0; i < cn-1; i++){
             for(j = 0; j < cn-1-i;j++){
                 if(c[j].happiness > c[j+1].happiness){
@@ -62,6 +63,17 @@ public class DoBreakUp {
                     c[i].girl.boyfriend = null;
                     c[i].girl.happiness = 0.00;
                     c[i].girl.status = "Single";
+                    try {
+                        throw new NoBoyFound(c[i].girl);
+                    }catch (NoBoyFound noBoyFound) {
+                        p1++;
+                        if(i+1<t) {
+                            System.out.println("moving on to girl " + c[i+1].girl.name);
+                        }
+                        else
+                            System.out.println("All " + t + " Couples Broke up");
+                        System.out.println();
+                    }
                 }
             }
         }
@@ -84,6 +96,7 @@ public class DoBreakUp {
                 cn++;
             }
         }
+        System.out.println("No Boy Found Exception was Catched " + p1 + " times\n");
         return cn;
     }
 }

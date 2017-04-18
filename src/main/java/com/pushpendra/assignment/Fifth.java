@@ -5,6 +5,7 @@ import com.pushpendra.assignment.Gifts.Gift;
 import com.pushpendra.assignment.Girl.CommittedGirl;
 import com.pushpendra.assignment.RandomGenerate.*;
 
+import javax.sound.midi.Soundbank;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -18,15 +19,15 @@ public class Fifth {
         int ch = s.nextInt();
         System.out.println("enter value of k < 20");
         int k = s.nextInt();
+        int cn=0;
         Couple[] c = new Couple[200];
         CommittedGirl[] g = new CommittedGirl[200];
         CommittedBoys[] b = new CommittedBoys[500];
         Gift[] gi = new Gift[3000];
         Givegifts gr = new Givegifts();
-        GetBoysGirls m = new GetBoysGirls(b, g);
+        GetBoysGirls m = new GetBoysGirls(b,g);
         GetGifts mi = new GetGifts();
         mi.getgifts(gi);
-        int cn;
         switch (ch) {
             case 1:
                 MakeCouple mii = new MakeCouple();
@@ -49,6 +50,7 @@ public class Fifth {
             c[i].countHappiness();
             c[i].countCompability();
         }
+        System.out.println("Total Couples Formed = "  + cn);
         System.out.println(k + " happiest couple");
         for (i = 0; i < k; i++) {
             for (j = 0; j < cn - 1 - i; j++) {

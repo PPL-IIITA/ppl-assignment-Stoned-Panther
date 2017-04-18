@@ -25,13 +25,14 @@ public class Third {
         GetGifts mi = new GetGifts();
         mi.getgifts(gi);
         MakeCouple mii = new MakeCouple();
-        cn = mii.makecouple1(c,b,g);
-        gr.givegifts(b,g,gi,3000);
-        int i,j;
-        for(i = 0; i < cn; i++){
+        cn = mii.makecouple1(c, b, g);
+        gr.givegifts(b, g, gi, 3000);
+        int i, j;
+        for (i = 0; i < cn; i++) {
             c[i].countHappiness();
             c[i].countCompability();
         }
+        System.out.println("Total Couples Formed = "  + cn);
         System.out.println(k + " happiest couple");
         for(i = 0; i < k; i++){
             for(j = 0; j < cn-1-i;j++){

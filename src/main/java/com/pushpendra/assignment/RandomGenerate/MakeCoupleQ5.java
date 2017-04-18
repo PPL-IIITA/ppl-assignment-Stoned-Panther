@@ -2,6 +2,8 @@ package com.pushpendra.assignment.RandomGenerate;
 
 import com.pushpendra.assignment.Boy.CommittedBoys;
 import com.pushpendra.assignment.Girl.CommittedGirl;
+import com.pushpendra.assignment.exceptions.NoBoyFound;
+import com.pushpendra.assignment.exceptions.NoGirlFound;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -39,7 +41,7 @@ public class MakeCoupleQ5 {
             }
         }
         k = 0;
-        int p = 0;
+        int p = 0,p1=0,p2=0;
         while(k<200 && p<500){
                 if(g[k].status.equals("Single")) {
                     for (l = 0; l < 500; l++) {
@@ -54,8 +56,23 @@ public class MakeCoupleQ5 {
                             k++;
                             break;
                         }
-                        if(l==499)
+                        if(l==499){
                             k++;
+                            if(g[k].boyfriend==null){
+                                try {
+                                    throw new NoBoyFound(g[k]);
+                                }catch (NoBoyFound noBoyFound) {
+                                    p1++;
+                                    if(p<499) {
+                                        System.out.println("moving on to boy->" + b[p].name);
+                                    }
+                                    else
+                                        System.out.println("BOY ARRAY SCANNED");
+                                    System.out.println();
+                                }
+                            }
+                        }
+
                     }
                 }
                 else
@@ -73,8 +90,22 @@ public class MakeCoupleQ5 {
                             p++;
                             break;
                         }
-                        if(l==199)
+                        if(l==199) {
                             p++;
+                            if(b[p].girlfriend==null){
+                                try {
+                                    throw new NoGirlFound(b[p]);
+                                }catch (NoGirlFound noGirlFound) {
+                                    p2++;
+                                    if(k<199) {
+                                        System.out.println("moving on to girl->" + g[k].name);
+                                    }
+                                    else
+                                        System.out.println("GIRL ARRAY SCANNED");
+                                    System.out.println();
+                                }
+                            }
+                        }
                     }
                 }
                 else
@@ -89,6 +120,9 @@ public class MakeCoupleQ5 {
                 cn++;
             }
         }
+
+        System.out.println("No Boy Found Exception was Catched " + p1 + " times");
+        System.out.println("No Girl Found Exception was Catched " + p2 + " times\n");
         return cn;
 
     }
